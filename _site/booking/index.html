@@ -72,14 +72,14 @@
     <div class="square-wrap" id="square-booking-wrap">
       <iframe
         id="square-booking-frame"
-        src="YOUR_SQUARE_APPOINTMENTS_URL"
+        src="'https://square.site/appointments/buyer/widget/6t3dr4u3tg3109/LSMK9Z81Z1PDK.js'"
         title="Book an appointment with Reflekt Auto Care"
         allow="payment"
         loading="lazy">
       </iframe>
       <div class="square-wrap-fallback" id="square-fallback">
         <p>Click below to open the booking page and pay your deposit — all in one step through Square.</p>
-        <a href="YOUR_SQUARE_APPOINTMENTS_URL" class="sq-book-btn" target="_blank" rel="noopener">
+        <a href="'https://square.site/appointments/buyer/widget/6t3dr4u3tg3109/LSMK9Z81Z1PDK.js'" class="sq-book-btn" target="_blank" rel="noopener">
           Book &amp; Pay Now &rarr;
         </a>
       </div>
@@ -126,7 +126,7 @@
     const fallback = document.getElementById('square-fallback');
     if (!frame) return;
     const src = frame.getAttribute('src') || '';
-    if (src.includes('YOUR_SQUARE_APPOINTMENTS_URL') || src === '' || src === '#') {
+    if (src.includes('https://square.site/appointments/buyer/widget/6t3dr4u3tg3109/LSMK9Z81Z1PDK.js') || src === '' || src === '#') {
       frame.style.display = 'none';
       if (fallback) {
         fallback.style.display = 'block';
