@@ -40,27 +40,62 @@
       <li><a href="/services/">Services</a></li>
       <li><a href="/subscriptions/" class="active">Plans</a></li>
       <li><a href="#reviews">Reviews</a></li>
-      <li><a href="mailto:reflektautocare.atl@gmail.com">Contact</a></li>
+      <li><a href="/contact/">Contact</a></li>
     </ul>
-    <a href="/booking/" class="nav-cta">Book Now</a>
+    <div class="nav-right">
+      <a href="/booking/" class="nav-cta">Book Now</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   
 </nav>
 
+<!-- Mobile dropdown menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-menu-links">
+    <li><a href="/" onclick="closeMobileMenu()">Home</a></li>
+    <li><a href="/services/" onclick="closeMobileMenu()">Services</a></li>
+    <li><a href="/subscriptions/" class="active" onclick="closeMobileMenu()">Plans</a></li>
+    <li><a href="#reviews" onclick="closeMobileMenu()">Reviews</a></li>
+    <li><a href="/contact/" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+  <a href="/booking/" class="mobile-menu-cta" onclick="closeMobileMenu()">Book Now</a>
+</div>
 
-<div class="page-header">
-  <div class="page-header-inner">
+<script>
+  function toggleMobileMenu() {
+    var menu   = document.getElementById('mobile-menu');
+    var burger = document.getElementById('nav-hamburger');
+    var open   = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('nav-hamburger').classList.remove('open');
+  }
+  // Close on outside tap
+  document.addEventListener('click', function(e) {
+    var menu   = document.getElementById('mobile-menu');
+    var burger = document.getElementById('nav-hamburger');
+    if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+</script>
+
+
+<div class="page-header plans-header">
+  <div class="plans-header-personal">
     <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Recurring Plans</span></div>
     <h1>Always Clean.<br>Always Ready.</h1>
     <p>A vehicle that's consistently maintained always looks better and holds its value longer. Our subscription plans lock in priority scheduling and recurring savings — so your car is never more than a week away from perfect.</p>
   </div>
-</div>
-
-<div class="vehicle-bar">
-  <span class="vehicle-label">Vehicle Size:</span>
-  <div class="vehicle-btns">
-    <button class="vehicle-btn active" onclick="setVehicle(0)">Sedan / Coupe</button>
-    <button class="vehicle-btn" onclick="setVehicle(1)">SUV / Crossover</button>
-    <button class="vehicle-btn" onclick="setVehicle(2)">Truck / Large SUV</button>
+  <div class="plans-header-commercial">
+    <div class="commercial-eyebrow">For Businesses</div>
+    <div class="commercial-title">Managing<br>a Fleet?</div>
+    <p class="commercial-desc">Custom packages for dealerships, fleets, and rental companies — dedicated scheduling, priority service, and account management included.</p>
+    <a href="/commercial/" class="btn-gold-outline" style="margin-top: 24px; display: inline-block;">View Commercial Plans &rarr;</a>
   </div>
 </div>
 
@@ -69,6 +104,13 @@
     <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Choose Your Plan</span></div>
     <h2 class="section-title">Consistent Care.<br>Real Savings.</h2>
     <p class="section-sub">Every plan includes a dedicated appointment slot, priority scheduling, and a discount off standard rates — the more frequently we come, the more you save.</p>
+  </div>
+
+  <div class="vehicle-select vehicle-select--section">
+    <span class="vehicle-label">Vehicle Size:</span>
+    <button class="vehicle-btn active" onclick="setVehicle(0)">Sedan / Coupe</button>
+    <button class="vehicle-btn" onclick="setVehicle(1)">SUV / Crossover</button>
+    <button class="vehicle-btn" onclick="setVehicle(2)">Truck / Large SUV</button>
   </div>
 
   <div class="plans-grid">
@@ -186,15 +228,6 @@
       <p class="faq-a">Yes — multi-vehicle households get a discount on each additional vehicle added to a plan. Reach out to us directly to set that up.</p>
     </div>
   </div>
-</div>
-
-<div class="commercial-band">
-  <div class="commercial-text">
-    <div class="commercial-eyebrow">For Businesses</div>
-    <div class="commercial-title">Managing a Fleet?<br>We Have a Plan for That.</div>
-    <p class="commercial-desc">Reflekt Auto Care offers dedicated commercial account packages for businesses with multiple vehicles — dealerships, fleets, rental companies, and more. Custom pricing, priority scheduling, and account management included.</p>
-  </div>
-  <a href="/commercial/" class="btn-gold-outline">View Commercial Plans &rarr;</a>
 </div>
 
 <div class="cta-band">
