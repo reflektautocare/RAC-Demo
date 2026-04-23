@@ -75,7 +75,6 @@ nav {
   display: flex;
   align-items: center;
   gap: 12px;
-  position: relative;
 }
 
 // ── Hamburger button ──
@@ -119,10 +118,10 @@ nav {
 // ── Mobile dropdown menu ──
 .mobile-menu {
   display: none;
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  min-width: 200px;
+  position: fixed;
+  top: 68px;
+  right: 5%;
+  min-width: 220px;
   background: var(--black-2);
   border: 1px solid var(--border);
   border-radius: 8px;
