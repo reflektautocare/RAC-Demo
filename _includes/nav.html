@@ -15,7 +15,7 @@
       <li><a href="{{ '/' | relative_url }}"{% if p == '/' %} class="active"{% endif %}>Home</a></li>
       <li><a href="{{ '/services/' | relative_url }}"{% if p contains '/services' %} class="active"{% endif %}>Services</a></li>
       <li><a href="{{ '/subscriptions/' | relative_url }}"{% if p contains '/subscriptions' %} class="active"{% endif %}>Plans</a></li>
-      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="{{ '/reviews/' | relative_url }}"{% if p contains '/reviews' %} class="active"{% endif %}>Reviews</a></li>
       <li><a href="{{ '/contact/' | relative_url }}"{% if p contains '/contact' %} class="active"{% endif %}>Contact</a></li>
     </ul>
     <div class="nav-right">
@@ -39,7 +39,7 @@
     <a href="{{ '/' | relative_url }}"{% if p == '/' %} class="active"{% endif %} onclick="closeMobileMenu()">Home</a>
     <a href="{{ '/services/' | relative_url }}"{% if p contains '/services' %} class="active"{% endif %} onclick="closeMobileMenu()">Services</a>
     <a href="{{ '/subscriptions/' | relative_url }}"{% if p contains '/subscriptions' %} class="active"{% endif %} onclick="closeMobileMenu()">Plans</a>
-    <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+    <a href="{{ '/reviews/' | relative_url }}"{% if p contains '/reviews' %} class="active"{% endif %} onclick="closeMobileMenu()">Reviews</a>
     <a href="{{ '/contact/' | relative_url }}"{% if p contains '/contact' %} class="active"{% endif %} onclick="closeMobileMenu()">Contact</a>
   </nav>
   <a href="{{ '/booking/' | relative_url }}" class="mobile-overlay-cta" onclick="closeMobileMenu()">Book Now</a>

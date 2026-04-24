@@ -566,11 +566,11 @@ footer {
 
 // ── Home ─────────────────────────────────────────────────────
 
-// Ken Burns keyframe
+// Ken Burns — zooms toward Porsche brake caliper + center cap logo
 @keyframes kenBurns {
-  0%   { transform: scale(1)    translate(0, 0); }
-  50%  { transform: scale(1.08) translate(-1.5%, -1%); }
-  100% { transform: scale(1)    translate(0, 0); }
+  0%   { transform: scale(1.0)  translate(0, 0); }
+  60%  { transform: scale(1.18) translate(7%, 2%); }
+  100% { transform: scale(1.0)  translate(0, 0); }
 }
 
 // Hero
@@ -589,7 +589,7 @@ footer {
     position: absolute;
     inset: -8%;
     background-size: cover;
-    background-position: center 30%;
+    background-position: center 55%;
     background-repeat: no-repeat;
     animation: kenBurns 22s ease-in-out infinite;
     z-index: 0;
@@ -2163,6 +2163,157 @@ section { padding: 80px 5%; }
   }
 }
 
+// ── Reviews Page ─────────────────────────────────────────────
+
+.reviews-header {
+  h1 { margin-bottom: 32px; }
+}
+
+.rating-summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 4px;
+}
+
+.rating-score {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 10vw, 100px);
+  letter-spacing: 2px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.rating-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star-lg {
+  font-size: 28px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.rating-meta {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+// Reviews section
+.reviews-section {
+  padding: 72px 5%;
+  background: #FAFAF8;
+}
+
+.reviews-full-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 56px;
+}
+
+// Review card (reviews page)
+.review-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E6E0;
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  &:hover {
+    border-color: rgba(201,168,76,0.4);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+}
+
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-stars-row {
+  display: flex;
+  gap: 2px;
+}
+
+.star-sm {
+  font-size: 15px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.review-source {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  span {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    font-weight: 500;
+  }
+}
+
+.review-quote {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.8;
+  font-weight: 300;
+  font-style: italic;
+  flex: 1;
+}
+
+// Google CTA
+.reviews-google-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.btn-google-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid #E8E6E0;
+  color: #3a3a3a;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  &:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  }
+}
+
+.reviews-sync-note {
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
+
 // ── Footer extras ─────────────────────────────────────────────
 .footer-tagline {
   font-size: 13px;
@@ -2183,6 +2334,7 @@ section { padding: 80px 5%; }
   .steps-grid { grid-template-columns: repeat(2, 1fr); }
   .svc-hero h1 { font-size: 56px; }
   .section-head h2 { font-size: 44px; }
+  .reviews-full-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 1060px) {
@@ -2209,6 +2361,8 @@ section { padding: 80px 5%; }
   .services-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .reviews-grid { grid-template-columns: 1fr; }
+  .reviews-full-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .rating-score { font-size: 72px; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .portal-layout { grid-template-columns: 1fr; }
@@ -2220,6 +2374,58 @@ section { padding: 80px 5%; }
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+  }
+
+  // ── Mobile vehicle size selector ─────────────────────────────
+  .vehicle-select--section {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+
+    .vehicle-label {
+      text-align: center;
+      margin-right: 0;
+      margin-bottom: 4px;
+      font-size: 9px;
+      letter-spacing: 3.5px;
+      color: var(--gold);
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      width: 100%;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .vehicle-btn {
+      width: 100%;
+      padding: 16px 20px;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      border-radius: 0;
+      border: 1px solid var(--divider);
+      border-bottom: none;
+      color: var(--black);
+
+      &:first-of-type {
+        margin-top: 0;
+        border-radius: 8px 8px 0 0;
+      }
+      &:last-of-type {
+        border-bottom: 1px solid var(--divider);
+        border-radius: 0 0 8px 8px;
+      }
+      &.active {
+        background: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+        z-index: 1;
+      }
+    }
   }
 }
 
