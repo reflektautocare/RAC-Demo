@@ -566,13 +566,17 @@ footer {
 
 // ── Home ─────────────────────────────────────────────────────
 
+// Ken Burns keyframe
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  50%  { transform: scale(1.08) translate(-1.5%, -1%); }
+  100% { transform: scale(1)    translate(0, 0); }
+}
+
 // Hero
 .hero {
   position: relative;
   background: var(--black);
-  background-size: cover;
-  background-position: center 30%;
-  background-repeat: no-repeat;
   padding: 90px 5% 0;
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -580,21 +584,33 @@ footer {
   align-items: end;
   overflow: hidden;
 
+  // Ken Burns background layer
+  .hero-bg {
+    position: absolute;
+    inset: -8%;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    animation: kenBurns 22s ease-in-out infinite;
+    z-index: 0;
+  }
+
+  // Dark overlay
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
       105deg,
-      rgba(10,10,10,0.82) 0%,
+      rgba(10,10,10,0.85) 0%,
       rgba(10,10,10,0.65) 55%,
-      rgba(10,10,10,0.40) 100%
+      rgba(10,10,10,0.45) 100%
     );
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
   }
 
-  & > * { position: relative; z-index: 1; }
+  & > * { position: relative; z-index: 2; }
 }
 
 .hero h1 {
@@ -945,7 +961,30 @@ section { padding: 80px 5%; }
     border-color: var(--gold);
     box-shadow: 0 12px 32px rgba(10,10,10,0.06);
   }
-  &.popular { border: 2px solid var(--gold); }
+  &.popular {
+    border: 2px solid var(--gold);
+    background: var(--black);
+    &:hover { box-shadow: 0 12px 40px rgba(201,168,76,0.18); }
+    .svc-tag   { color: rgba(201,168,76,0.7); }
+    .svc-title { color: var(--white); }
+    .svc-desc  { color: var(--muted); }
+    .price-amt { color: var(--gold); }
+    .price-unit, .price-note { color: var(--muted); }
+    .includes-label { color: var(--gold); }
+    .includes-list li { color: rgba(245,244,240,0.75); }
+    .tier-btn {
+      color: var(--muted);
+      border-color: rgba(201,168,76,0.3);
+      background: transparent;
+      &.active { background: var(--gold); border-color: var(--gold); color: var(--black); }
+    }
+    .svc-cta.primary {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+      &:hover { background: var(--gold-light); }
+    }
+  }
 }
 // Unified floating badge — used on svc-card and plan-card
 // Replaces: .svc-badge, .plan-badge

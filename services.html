@@ -17,20 +17,22 @@ structured_data: >
 ---
 
 <!-- ───── HERO ───── -->
-<section class="svc-hero">
-  <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Services</span></div>
-  <h1><span>Expert Detail Work.</span><span>Priced Your Way.</span></h1>
-  <p class="hero-sub">Every service is performed by hand with professional-grade products. Choose the service, pick your tier, and we come to you — at home, at the office, wherever your vehicle lives.</p>
-</section>
+<div class="page-header plans-header">
+  <div class="plans-header-personal">
+    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Our Services</span></div>
+    <h1>Expert Detail.<br>At Your Door.</h1>
+    <p>Five services, each with tiered options to match your vehicle's condition. Pick a tier inside each card to see what's included.</p>
+  </div>
+  <div class="plans-header-commercial">
+    <div class="commercial-eyebrow">Recurring Plans</div>
+    <div class="commercial-title">Let Us Handle<br>the Cleaning.</div>
+    <p class="commercial-desc">So you can keep living. Weekly, Bi-Weekly, and Monthly plans — priority scheduling and savings built in. No contracts.</p>
+    <a href="{{ '/subscriptions/' | relative_url }}" class="btn-gold-outline" style="margin-top: 24px; display: inline-block;">View Plans &rarr;</a>
+  </div>
+</div>
 
 <!-- ───── SERVICES GRID ───── -->
 <section class="services-section">
-  <div class="section-head">
-    <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Choose Your Service</span></div>
-    <h2><span>Every Detail Considered.</span><span>Every Finish Protected.</span></h2>
-    <p>Five core services, with tiered options to match your vehicle's condition and your goals. Pricing adjusts with vehicle size — pick a tier inside each card to see what's included.</p>
-  </div>
-
   <div class="vehicle-select vehicle-select--section">
     <span class="vehicle-label">Vehicle Size:</span>
     <button class="vehicle-btn active" data-size="0" onclick="setSize(0)">Sedan / Coupe</button>
@@ -70,36 +72,6 @@ structured_data: >
       <a href="{{ '/booking/' | relative_url }}" class="svc-cta primary">Book This Service</a>
     </div>
 
-    <!-- EXTERIOR DETAIL -->
-    <div class="svc-card" data-service="exterior">
-      <div class="svc-tag">Exterior</div>
-      <h3 class="svc-title">Exterior Detail</h3>
-      <p class="svc-desc">A proper hand wash with attention a machine can't give — safe technique, clay bar decontamination, and a lasting hydrophobic finish.</p>
-
-      <div class="tier-row">
-        <button class="tier-btn active" data-tier="silver" onclick="setTier('exterior','silver')">Silver</button>
-        <button class="tier-btn" data-tier="gold" onclick="setTier('exterior','gold')">Gold</button>
-        <button class="tier-btn" data-tier="platinum" onclick="setTier('exterior','platinum')">Platinum</button>
-      </div>
-
-      <div class="price-line">
-        <span class="price-amt" data-price="exterior">$100</span>
-        <span class="price-unit">starting</span>
-      </div>
-      <div class="price-note" data-note="exterior">Silver &middot; sedan / coupe</div>
-
-      <div class="includes-label">What's Included</div>
-      <ul class="includes-list" data-includes="exterior">
-        <li>Safe pre-rinse and two-bucket hand wash</li>
-        <li>Wheel face and tire cleaned</li>
-        <li>Tire dressing applied</li>
-        <li>Exterior glass cleaned streak-free</li>
-        <li>Quick-detail spray for surface gloss</li>
-      </ul>
-
-      <a href="{{ '/booking/' | relative_url }}" class="svc-cta primary">Book This Service</a>
-    </div>
-
     <!-- FULL DETAIL (MOST POPULAR) -->
     <div class="svc-card popular" data-service="full">
       <span class="card-badge">Most Popular</span>
@@ -127,6 +99,36 @@ structured_data: >
         <li>Safe pre-rinse and two-bucket hand wash</li>
         <li>Wheel face and tire cleaned + tire dressing</li>
         <li>Exterior glass streak-free + quick-detail gloss spray</li>
+      </ul>
+
+      <a href="{{ '/booking/' | relative_url }}" class="svc-cta primary">Book This Service</a>
+    </div>
+
+    <!-- EXTERIOR DETAIL -->
+    <div class="svc-card" data-service="exterior">
+      <div class="svc-tag">Exterior</div>
+      <h3 class="svc-title">Exterior Detail</h3>
+      <p class="svc-desc">A proper hand wash with attention a machine can't give — safe technique, clay bar decontamination, and a lasting hydrophobic finish.</p>
+
+      <div class="tier-row">
+        <button class="tier-btn active" data-tier="silver" onclick="setTier('exterior','silver')">Silver</button>
+        <button class="tier-btn" data-tier="gold" onclick="setTier('exterior','gold')">Gold</button>
+        <button class="tier-btn" data-tier="platinum" onclick="setTier('exterior','platinum')">Platinum</button>
+      </div>
+
+      <div class="price-line">
+        <span class="price-amt" data-price="exterior">$100</span>
+        <span class="price-unit">starting</span>
+      </div>
+      <div class="price-note" data-note="exterior">Silver &middot; sedan / coupe</div>
+
+      <div class="includes-label">What's Included</div>
+      <ul class="includes-list" data-includes="exterior">
+        <li>Safe pre-rinse and two-bucket hand wash</li>
+        <li>Wheel face and tire cleaned</li>
+        <li>Tire dressing applied</li>
+        <li>Exterior glass cleaned streak-free</li>
+        <li>Quick-detail spray for surface gloss</li>
       </ul>
 
       <a href="{{ '/booking/' | relative_url }}" class="svc-cta primary">Book This Service</a>
